@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>Decentralized owner</title>
+    </head>
+    <body>
+      Hi this is the Decentralized application
+	  <div>
+	  	The address of the owner of the contract is : <span id ="owner-address"></span>
+	  </div>
+    </body>
+
+	<script src="web3.js"></script>
+    <script>
+        const abi = [
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+
+	const myContractAddress = "0x55f58a34d52aee62878697caac67f3dd8126c2e5"
+
+	window.web3 = new Web3(web3.currentProvider)
+	window.contractInstance = new web3.eth.contract()
+
+	contractInstance.owner((err, ownerValue) => {
+		document.querySelector('$owner-address')
+	}
+    </script>
+
+</html>
